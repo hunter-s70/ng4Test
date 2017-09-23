@@ -15,7 +15,7 @@ git clone https://github.com/hunter-s70/ng4Test.git
 ```bash
 npm install
 ```
-<strong>Open in your browser:</strong>
+<strong>Run server:</strong>
 ```bash
 nmp start
 ```
