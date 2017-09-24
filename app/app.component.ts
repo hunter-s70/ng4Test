@@ -29,69 +29,7 @@ export class Item{
  
 @Component({
     selector: 'my-app',
-    template: `<div class="page-header">
-        <h1> Список сотрудников </h1>
-    </div>
-    <div ngDraggable>Drag me!</div>
-    <div class="panel">
-        <div class="form-inline">
-            <div class="form-group">
-                <div class="col-md-8">
-                    <input class="form-control" [(ngModel)]="text" placeholder = "Имя" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <input type="text" class="form-control" [(ngModel)]="mail" placeholder="Эл. почта" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <input type="number" class="form-control" [(ngModel)]="phone" placeholder="Телефон" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <input type="text" class="form-control" [(ngModel)]="date" placeholder="Дата" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <input type="text" class="form-control" [(ngModel)]="position" placeholder="Должность" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-8">
-                    <button class="btn btn-default" (click)="addItem(text, mail, phone, date, position)">Добавить</button>
-                </div>
-            </div>
-        </div>
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Имя</th>
-                    <th>Эл. почта</th>
-                    <th>Телефон</th>
-                    <th>Дата</th>
-                    <th>Должность</th>
-                    <th>Редактировать</th>
-                    <th>Удалить</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of items">
-                    <td>{{item.name}}</td>
-                    <td>{{item.mail}}</td>
-                    <td>{{item.phone}}</td>
-                    <td>{{item.date}}</td>
-                    <td>{{item.position}}</td>
-                    <td><input type="checkbox" [(ngModel)]="item.done" /></td>
-                    <td><span class="btn btn-danger" (click)="delItem(item.id)">Удалить</span></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>`
+    templateUrl: './app/users/users_list/users_list.html'
 })
 
 export class AppComponent { 
@@ -102,6 +40,7 @@ export class AppComponent {
         {id: 6547, name: "Стас", done: true, date: "22.06", mail: "bem@mail.ru", phone: 24533267, position: "Front-end" },
         {id: 6548, name: "Димас", done: false, date: "3.10", mail: "bem@mail.ru", phone: 24533267, position: "Front-end" }
     ];
+
     addItem(text: string, mail: string, phone: number, date: string, position: string): void {
          
         if(text==null || text==undefined || text.trim()=="")
@@ -119,6 +58,10 @@ export class AppComponent {
 
         this.items.push(new Item(thisId, text, mail, phone, date, position));
         console.log(this.items);
+    }
+
+    editItem(id: number): void {
+
     }
 
     delItem(id: number): void {
