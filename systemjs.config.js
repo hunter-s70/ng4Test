@@ -18,6 +18,7 @@
             '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
             // остальные пакеты
+            'angular2-draggable':        'npm:angular2-draggable',
             'rxjs':                      'npm:rxjs',
             'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
         },
@@ -29,6 +30,11 @@
             },
             rxjs: {
                 defaultExtension: 'js'
+            },
+            //angular2-draggable
+            'angular2-draggable': {
+                defaultExtension: 'js',
+                main: 'bundles/angular2-draggable.umd.min.js'
             }
         }
     });

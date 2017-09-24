@@ -32,6 +32,7 @@ export class Item{
     template: `<div class="page-header">
         <h1> Список сотрудников </h1>
     </div>
+    <div ngDraggable>Drag me!</div>
     <div class="panel">
         <div class="form-inline">
             <div class="form-group">
