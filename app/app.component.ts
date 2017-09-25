@@ -29,7 +29,7 @@ export class Item{
  
 @Component({
     selector: 'my-app',
-    templateUrl: './app/users/users_list/users_list.html'
+    templateUrl: './app/UsersCmp/tmp/users_list.html'
 })
 
 export class AppComponent { 
