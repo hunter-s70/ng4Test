@@ -1,7 +1,7 @@
 /**
  * Created by hunter_s70 on 25.09.2017.
  */
-import {Component, Inject} from '@angular/core';
+import {Input, Component, Inject} from '@angular/core';
 import {MdDialog, MD_DIALOG_DATA} from '@angular/material';
 
 /**
@@ -12,13 +12,13 @@ import {MdDialog, MD_DIALOG_DATA} from '@angular/material';
     templateUrl: './app/UsersCmp/tmp/dialog-data-example.html',
 })
 export class DialogDataExample {
+    @Input() itemData: any;
+
     constructor(public dialog: MdDialog) {}
 
-    openDialog() {
+    openDialog(itemData: any) {
         this.dialog.open(DialogDataExampleDialog, {
-            data: {
-                animal: 'panda'
-            }
+            data: itemData
         });
     }
 }

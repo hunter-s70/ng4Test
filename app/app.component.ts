@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
      
 export class Item{
-	id: number; 
+	id: number;
     name: string;
     mail: string;
     phone: number;
@@ -32,7 +32,7 @@ export class Item{
     templateUrl: './app/UsersCmp/tmp/users_list.html'
 })
 
-export class AppComponent { 
+export class AppComponent {
     items: Item[] = 
     [
         {id: 6545, name: "Иван", done: false, date: "15.09", mail: "bem@mail.ru", phone: 24533267, position: "Front-end" },
@@ -58,10 +58,6 @@ export class AppComponent {
 
         this.items.push(new Item(thisId, text, mail, phone, date, position));
         console.log(this.items);
-    }
-
-    editItem(id: number): void {
-
     }
 
     delItem(id: number): void {
