@@ -60,7 +60,7 @@
             <td>{{item.position}}</td>
             <td>
                 <!-- SET item in child component -->
-                <dialog-data-example [itemData]="item"></dialog-data-example>
+                <dialog-data-example [itemData]="item" (onChanged)="onModalChanged($event)"></dialog-data-example>
             </td>
             <td><span class="btn btn-danger" (click)="delItem(item.id)">Удалить</span></td>
         </tr>

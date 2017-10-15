@@ -73,4 +73,13 @@ export class AppComponent {
         	}
         });
     }
+
+    onModalChanged(data: any):void {
+        this.items.forEach(function(item, i, items) {
+            if (item.id === data.id) {
+                // refresh current Item
+                items.splice(i, 1, data);
+            }
+        });
+    }
 }

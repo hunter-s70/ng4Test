@@ -1,8 +1,9 @@
 /**
  * Created by hunter_s70 on 25.09.2017.
  */
-import {Input, Component, Inject} from '@angular/core';
+import {Input, Component, Inject, Output, EventEmitter} from '@angular/core';
 import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import {Item} from './app.component';
 
 /**
  * @title Injecting data when opening a dialog
@@ -12,19 +13,25 @@ import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
     templateUrl: './app/UsersCmp/tmp/dialog-data-example.html',
 })
 export class DialogDataExample {
+    @Output() onChanged = new EventEmitter<Item[]>();
     @Input() itemData: any;
-    intData: any;
+    _initData: any;
 
     constructor(public dialog: MdDialog) {}
 
-    openDialog(itemData: any) {
-        this.intData = Object.create(itemData);
+    openDialog() {
+        // create new object to protect live input change
+        this._initData = Object.create(this.itemData);
+
         const dialogRef = this.dialog.open(DialogDataExampleDialog, {
-            data: this.intData
+            width: '600px',
+            disableClose: true,
+            data: this._initData
         });
 
-        dialogRef.afterClosed().subscribe(result => {
-            this.itemData = this.intData;
+        dialogRef.beforeClose().subscribe(() => {
+            // emit refresh event when save Item
+            this.onChanged.emit(this._initData);
         });
     }
 }
