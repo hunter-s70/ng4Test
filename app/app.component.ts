@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
      
 export class Item{
 	id: number;
@@ -29,7 +30,8 @@ export class Item{
  
 @Component({
     selector: 'my-app',
-    templateUrl: './app/UsersCmp/tmp/users_list.html'
+    templateUrl: './app/UsersCmp/tmp/users_list.html',
+    styleUrls: ['./app/styles/app.component.css'],
 })
 
 export class AppComponent {
@@ -40,6 +42,31 @@ export class AppComponent {
         {id: 6547, name: "Стас", done: true, date: "22.06", mail: "bem@mail.ru", phone: 24533267, position: "Front-end" },
         {id: 6548, name: "Димас", done: false, date: "3.10", mail: "bem@mail.ru", phone: 24533267, position: "Front-end" }
     ];
+
+    empForm : FormGroup;
+
+    constructor(){
+        this.empForm = new FormGroup({
+
+            'empName': new FormControl('', [
+                Validators.required,
+                Validators.pattern('[a-zA-Zа-яА-Я]{2,13}')
+            ]),
+            'empEmail': new FormControl('', [
+                Validators.required,
+                Validators.pattern('[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}')
+            ]),
+            'empPhone': new FormControl('', [
+                Validators.required,
+                Validators.pattern('[0-9]{4,11}')
+            ]),
+            'empDate': new FormControl('', [Validators.required]),
+            'empPosition': new FormControl('', [
+                Validators.required,
+                Validators.pattern('[a-zA-Zа-яА-Я]{2,13}')
+            ]),
+        });
+    }
 
     addItem(text: string, mail: string, phone: number, date: string, position: string): void {
          

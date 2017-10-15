@@ -11,9 +11,4 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   }
-//  "files":[
-//    "app/app.material.dialog.ts",
-//    "app/UsersCmp/tmp/dialog-data-example-dialog.html",
-//    "app/UsersCmp/tmp/dialog-data-example.html"
-//  ]
 }
