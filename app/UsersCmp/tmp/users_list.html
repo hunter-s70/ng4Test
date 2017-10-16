@@ -1,7 +1,7 @@
 <modal-comp></modal-comp>
 
 <div class="page-header">
-    <h1> Список сотрудников </h1>
+    <h1> Emploee list </h1>
 </div>
 
 <div ngDraggable>Drag me!</div>
@@ -22,7 +22,7 @@
             <div class="col-md-6">
                 <input type="text"
                        class="form-control"
-                       [(ngModel)]="mail"
+                       [(ngModel)]="email"
                        placeholder="Email"
                        formControlName="empEmail"/>
             </div>
@@ -57,7 +57,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-8">
                 <button class="btn btn-default"
-                        (click)="addItem(text, mail, phone, date, position)"
+                        (click)="addItem(text, email, phone, date, position)"
                         [disabled]="empForm.invalid">
                     Add
                 </button>
@@ -69,13 +69,13 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Имя</th>
-            <th>Эл. почта</th>
-            <th>Телефон</th>
-            <th>Дата</th>
-            <th>Должность</th>
-            <th>Редактировать</th>
-            <th>Удалить</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th>Position</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
 
@@ -83,7 +83,7 @@
         <!-- Iterator -->
         <tr *ngFor="let item of items">
             <td>{{item.name}}</td>
-            <td>{{item.mail}}</td>
+            <td>{{item.email}}</td>
             <td>{{item.phone}}</td>
             <td>{{item.date}}</td>
             <td>{{item.position}}</td>
@@ -91,7 +91,7 @@
                 <!-- SET item in child component -->
                 <dialog-data-example [itemData]="item" (onChanged)="onModalChanged($event)"></dialog-data-example>
             </td>
-            <td><span class="btn btn-danger" (click)="delItem(item.id)">Удалить</span></td>
+            <td><span class="btn btn-danger" (click)="delItem(item.id)">Delete</span></td>
         </tr>
         <!-- /Iterator -->
         </tbody>

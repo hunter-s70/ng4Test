@@ -4,27 +4,25 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 export class Item{
 	id: number;
     name: string;
-    mail: string;
+    email: string;
     phone: number;
     date: string;
     position: string;
-    done: boolean;
      
     constructor(
     id: number,
     name: string,
-    mail: string,
+    email: string,
     phone: number,
     date: string,
     position: string) {
   
   		this.id = id;
 	  	this.name = name;
-	    this.mail = mail;
+	    this.email = email;
 	    this.phone = phone;
 	    this.date = date;
 	    this.position = position;
-        this.done = false;
     }
 }
  
@@ -37,10 +35,10 @@ export class Item{
 export class AppComponent {
     items: Item[] = 
     [
-        {id: 6545, name: "Иван", done: false, date: "15.09", mail: "bem@mail.ru", phone: 24533267, position: "Front-end" },
-        {id: 6546, name: "Антон", done: false, date: "6.10", mail: "bem@mail.ru", phone: 24533267, position: "Front-end" },
-        {id: 6547, name: "Стас", done: true, date: "22.06", mail: "bem@mail.ru", phone: 24533267, position: "Front-end" },
-        {id: 6548, name: "Димас", done: false, date: "3.10", mail: "bem@mail.ru", phone: 24533267, position: "Front-end" }
+        {id: 6545, name: "Иван", date: "15.09", email: "bem@mail.ru", phone: 24533267, position: "Front-end" },
+        {id: 6546, name: "Антон", date: "6.10", email: "bem@mail.ru", phone: 24533267, position: "Front-end" },
+        {id: 6547, name: "Стас", date: "22.06", email: "bem@mail.ru", phone: 24533267, position: "Front-end" },
+        {id: 6548, name: "Димас", date: "3.10", email: "bem@mail.ru", phone: 24533267, position: "Front-end" }
     ];
 
     empForm : FormGroup;
@@ -68,12 +66,15 @@ export class AppComponent {
         });
     }
 
-    addItem(text: string, mail: string, phone: number, date: string, position: string): void {
+    addItem(text: string, email: string, phone: number, date: string, position: string): void {
          
-        if(text==null || text==undefined || text.trim()=="")
+        if(text == null || text == undefined || text.trim() == "") {
             return;
-        if(phone==null || phone==undefined)
+        }
+
+        if(phone == null || phone == undefined) {
             return;
+        }
 
         let thisId = (() => {
 	        let maxId = 0;
@@ -83,16 +84,13 @@ export class AppComponent {
         	return maxId + 1;
         })();
 
-        this.items.push(new Item(thisId, text, mail, phone, date, position));
-        console.log(this.items);
+        this.items.push(new Item(thisId, text, email, phone, date, position));
     }
 
     delItem(id: number): void {
-
-    	console.log(id);
-
-        if(id==null || id==undefined)
+        if(id == null || id == undefined) {
             return;
+        }
 
         this.items.forEach(function(item, i, items) {
         	if(item.id === id) {
