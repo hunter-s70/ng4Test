@@ -21,13 +21,17 @@
             '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
             '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
             '@angular/platform-browser/animations': 'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',
+            // material v-2
             '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
+            // cdk 14 modules for material!!!
             '@angular/cdk': 'npm:@angular/cdk/bundles/cdk.umd.js',
             '@angular/cdk/a11y': 'npm:@angular/cdk/bundles/cdk-a11y.umd.js',
+            '@angular/cdk/accordion': 'npm:@angular/cdk/bundles/cdk-accordion.umd.js',
             '@angular/cdk/bidi': 'npm:@angular/cdk/bundles/cdk-bidi.umd.js',
             '@angular/cdk/coercion': 'npm:@angular/cdk/bundles/cdk-coercion.umd.js',
             '@angular/cdk/collections': 'npm:@angular/cdk/bundles/cdk-collections.umd.js',
             '@angular/cdk/keycodes': 'npm:@angular/cdk/bundles/cdk-keycodes.umd.js',
+            '@angular/cdk/layout': 'npm:@angular/cdk/bundles/cdk-layout.umd.js',
             '@angular/cdk/observers': 'npm:@angular/cdk/bundles/cdk-observers.umd.js',
             '@angular/cdk/overlay': 'npm:@angular/cdk/bundles/cdk-overlay.umd.js',
             '@angular/cdk/platform': 'npm:@angular/cdk/bundles/cdk-platform.umd.js',

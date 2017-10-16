@@ -29,20 +29,27 @@
         </div>
         <div class="form-group">
             <div class="col-md-6">
+                <mat-form-field>
                 <input type="number"
-                       class="form-control"
+                       matInput
                        [(ngModel)]="phone"
                        placeholder="Phone"
                        formControlName="empPhone"/>
+                </mat-form-field>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-6">
-                <input type="text"
-                       class="form-control"
-                       [(ngModel)]="date"
-                       placeholder="Date"
-                       formControlName="empDate"/>
+                <mat-form-field>
+                    <input type="text"
+                           [(ngModel)]="date"
+                           placeholder="Date"
+                           matInput
+                           [matDatepicker]="picker"
+                           formControlName="empDate"/>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
             </div>
         </div>
         <div class="form-group">

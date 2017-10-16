@@ -2,7 +2,7 @@
  * Created by hunter_s70 on 25.09.2017.
  */
 import {Input, Component, Inject, Output, EventEmitter} from '@angular/core';
-import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {Item} from './app.component';
 
 /**
@@ -17,7 +17,7 @@ export class DialogDataExample {
     @Input() itemData: any;
     _initData: any;
 
-    constructor(public dialog: MdDialog) {}
+    constructor(public dialog: MatDialog) {}
 
     openDialog() {
         // create new object to protect live input change
@@ -42,8 +42,8 @@ export class DialogDataExample {
 })
 export class DialogDataExampleDialog {
     constructor(
-        public dialogRef: MdDialogRef<DialogDataExampleDialog>,
-        @Inject(MD_DIALOG_DATA) public data: any) {}
+        public dialogRef: MatDialogRef<DialogDataExampleDialog>,
+        @Inject(MAT_DIALOG_DATA) public data: any) {}
 
     saveItem() {
         this.dialogRef.close();
