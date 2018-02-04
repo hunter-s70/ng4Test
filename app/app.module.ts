@@ -6,9 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }  from './app.component';
 import { CdkTableModule } from '@angular/cdk/table';
 
-// modal component
-import { ModalComponent }  from './app.modal.component';
-
 // angular draggable plugin
 import { AngularDraggableModule } from 'angular2-draggable';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +13,9 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 // material dialog components
 import { DialogDataExample, DialogDataExampleDialog } from './app.matireal.dialog';
+
+// shared components
+import { AppHeader }  from './SharedCmp/HeaderCmp/app.header';
 
 // material design
 import {
@@ -102,7 +102,7 @@ export class MaterialModule {}
     MaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule ],
-  declarations: [ AppComponent, ModalComponent, DialogDataExample, DialogDataExampleDialog ],
+  declarations: [ AppComponent, AppHeader, DialogDataExample, DialogDataExampleDialog ],
   bootstrap:    [ AppComponent ],
   entryComponents: [ DialogDataExampleDialog ]
 })

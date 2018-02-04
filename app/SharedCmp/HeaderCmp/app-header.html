@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Employees list</a>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right" id="navbar-collapsed">
+            <ul class="nav navbar-nav">
+                <li class="margin-menu active">
+                    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>Users</button>
+                        <button mat-menu-item>Settings</button>
+                    </mat-menu>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>

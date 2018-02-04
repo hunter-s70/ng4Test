@@ -1,31 +1,31 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
-     
+
 export class Item{
-	id: number;
+    id: number;
     name: string;
     email: string;
     phone: number;
     date: string;
     position: string;
-     
+
     constructor(
-    id: number,
-    name: string,
-    email: string,
-    phone: number,
-    date: string,
-    position: string) {
-  
-  		this.id = id;
-	  	this.name = name;
-	    this.email = email;
-	    this.phone = phone;
-	    this.date = date;
-	    this.position = position;
+        id: number,
+        name: string,
+        email: string,
+        phone: number,
+        date: string,
+        position: string) {
+
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.date = date;
+        this.position = position;
     }
 }
- 
+
 @Component({
     selector: 'my-app',
     templateUrl: './app/UsersCmp/tmp/users_list.html',
@@ -33,13 +33,13 @@ export class Item{
 })
 
 export class AppComponent {
-    items: Item[] = 
-    [
-        {id: 6545, name: "Иван", date: "15.09", email: "bem@mail.ru", phone: 24533267, position: "Front-end" },
-        {id: 6546, name: "Антон", date: "6.10", email: "bem@mail.ru", phone: 24533267, position: "Front-end" },
-        {id: 6547, name: "Стас", date: "22.06", email: "bem@mail.ru", phone: 24533267, position: "Front-end" },
-        {id: 6548, name: "Димас", date: "3.10", email: "bem@mail.ru", phone: 24533267, position: "Front-end" }
-    ];
+    items: Item[] =
+        [
+            {id: 6545, name: "Иван", date: "15.09", email: "bem@mail.ru", phone: 24533267, position: "Front-end" },
+            {id: 6546, name: "Антон", date: "6.10", email: "bem@mail.ru", phone: 24533267, position: "Front-end" },
+            {id: 6547, name: "Стас", date: "22.06", email: "bem@mail.ru", phone: 24533267, position: "Front-end" },
+            {id: 6548, name: "Димас", date: "3.10", email: "bem@mail.ru", phone: 24533267, position: "Front-end" }
+        ];
 
     empForm : FormGroup;
 
@@ -67,7 +67,7 @@ export class AppComponent {
     }
 
     addItem(text: string, email: string, phone: number, date: string, position: string): void {
-         
+
         if(text == null || text == undefined || text.trim() == "") {
             return;
         }
@@ -77,11 +77,11 @@ export class AppComponent {
         }
 
         let thisId = (() => {
-	        let maxId = 0;
-	        this.items.forEach(function(item) {
-	        	if (item.id > maxId) maxId = item.id;
-        	});
-        	return maxId + 1;
+            let maxId = 0;
+            this.items.forEach(function(item) {
+                if (item.id > maxId) maxId = item.id;
+            });
+            return maxId + 1;
         })();
 
         this.items.push(new Item(thisId, text, email, phone, date, position));
@@ -93,9 +93,9 @@ export class AppComponent {
         }
 
         this.items.forEach(function(item, i, items) {
-        	if(item.id === id) {
-        		items.splice(i, 1);
-        	}
+            if(item.id === id) {
+                items.splice(i, 1);
+            }
         });
     }
 
