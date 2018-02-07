@@ -14,8 +14,21 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 // material dialog components
 import { DialogDataExample, DialogDataExampleDialog } from './app.matireal.dialog';
 
+// router
+import { Routes, RouterModule } from '@angular/router';
+
+import { HomeComponent } from './components/HomeCmp/app.home';
+import { SettingsComponent } from './components/SettingsCmp/app.settings';
+import { UsersComponent } from './components/UsersCmp/app.users';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'users', component: UsersComponent }
+];
+
 // shared components
-import { AppHeader }  from './SharedCmp/HeaderCmp/app.header';
+import { AppHeader }  from './components/SharedCmp/HeaderCmp/app.header';
 
 // material design
 import {
@@ -101,8 +114,18 @@ export class MaterialModule {}
     HttpModule,
     MaterialModule,
     MatNativeDateModule,
-    ReactiveFormsModule ],
-  declarations: [ AppComponent, AppHeader, DialogDataExample, DialogDataExampleDialog ],
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
+  ],
+  declarations: [
+    AppComponent,
+    AppHeader,
+    DialogDataExample,
+    DialogDataExampleDialog,
+    HomeComponent,
+    SettingsComponent,
+    UsersComponent
+  ],
   bootstrap:    [ AppComponent ],
   entryComponents: [ DialogDataExampleDialog ]
 })

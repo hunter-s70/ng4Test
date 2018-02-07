@@ -28,7 +28,7 @@ export class Item{
 
 @Component({
     selector: 'my-app',
-    templateUrl: './app/UsersCmp/tmp/users_list.html',
+    templateUrl: './app/components/UsersCmp/tmp/users_list.html',
     styleUrls: ['./app/styles/app.component.css'],
 })
 

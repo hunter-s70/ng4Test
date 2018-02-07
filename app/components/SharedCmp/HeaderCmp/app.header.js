@@ -17,7 +17,7 @@ var AppHeader = (function () {
 AppHeader = __decorate([
     core_1.Component({
         selector: 'app-header',
-        templateUrl: './app/SharedCmp/HeaderCmp/app-header.html',
+        templateUrl: './app/components/SharedCmp/HeaderCmp/app-header.html',
         styles: ["\n        .margin-menu {\n            margin-top: 6px;\n        }\n    "]
     })
 ], AppHeader);

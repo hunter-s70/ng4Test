@@ -10,7 +10,7 @@ import {Item} from './app.component';
  */
 @Component({
     selector: 'dialog-data-example',
-    templateUrl: './app/UsersCmp/tmp/dialog-data-example.html',
+    templateUrl: './app/components/UsersCmp/tmp/dialog-data-example.html',
 })
 export class DialogDataExample {
     @Output() onChanged = new EventEmitter<Item[]>();
@@ -38,7 +38,7 @@ export class DialogDataExample {
 
 @Component({
     selector: 'dialog-data-example-dialog',
-    templateUrl: './app/UsersCmp/tmp/dialog-data-example-dialog.html',
+    templateUrl: './app/components/UsersCmp/tmp/dialog-data-example-dialog.html',
 })
 export class DialogDataExampleDialog {
     constructor(

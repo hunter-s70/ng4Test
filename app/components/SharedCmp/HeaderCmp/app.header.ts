@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
 
 @Component({
     selector: 'app-header',
-    templateUrl: './app/SharedCmp/HeaderCmp/app-header.html',
+    templateUrl: './app/components/SharedCmp/HeaderCmp/app-header.html',
     styles: [`
         .margin-menu {
             margin-top: 6px;
