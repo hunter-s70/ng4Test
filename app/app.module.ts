@@ -15,17 +15,12 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { DialogDataExample, DialogDataExampleDialog } from './app.matireal.dialog';
 
 // router
-import { Routes, RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app.routing';
 
+// router components
 import { HomeComponent } from './components/HomeCmp/app.home';
 import { SettingsComponent } from './components/SettingsCmp/app.settings';
 import { UsersComponent } from './components/UsersCmp/app.users';
-
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'users', component: UsersComponent }
-];
 
 // shared components
 import { AppHeader }  from './components/SharedCmp/HeaderCmp/app.header';
@@ -115,7 +110,7 @@ export class MaterialModule {}
     MaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
