@@ -3,7 +3,7 @@
  */
 import {Input, Component, Inject, Output, EventEmitter} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {Item} from './app.component';
+import { User } from './User';
 
 /**
  * @title Injecting data when opening a dialog
@@ -13,7 +13,7 @@ import {Item} from './app.component';
     templateUrl: './app/components/UsersCmp/tmp/dialog-data-example.html',
 })
 export class DialogDataExample {
-    @Output() onChanged = new EventEmitter<Item[]>();
+    @Output() onChanged = new EventEmitter<User[]>();
     @Input() itemData: any;
     _initData: any;
 
