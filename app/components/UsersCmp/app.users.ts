@@ -1,26 +1,21 @@
 /**
  * Created by hunter_s70 on 07.02.2018.
  */
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../../User';
+import { UserService } from '../../user.service';
 
 @Component({
     selector: 'app-users',
     templateUrl: './app/components/UsersCmp/tmp/users_list.html',
+    providers: [UserService]
 })
-export class UsersComponent {
-    items: User[] =
-        [
-            {id: 6545, name: "Иван", date: "15.09", email: "bem@mail.ru", phone: 24533267, position: "Front-end" },
-            {id: 6546, name: "Антон", date: "6.10", email: "bem@mail.ru", phone: 24533267, position: "Front-end" },
-            {id: 6547, name: "Стас", date: "22.06", email: "bem@mail.ru", phone: 24533267, position: "Front-end" },
-            {id: 6548, name: "Димас", date: "3.10", email: "bem@mail.ru", phone: 24533267, position: "Front-end" }
-        ];
-
+export class UsersComponent implements OnInit {
+    items: User[] = [];
     empForm : FormGroup;
 
-    constructor() {
+    constructor(private httpService: UserService) {
         this.empForm = new FormGroup({
 
             'empName': new FormControl('', [
@@ -43,6 +38,10 @@ export class UsersComponent {
                 Validators.pattern('[a-zA-Zа-яА-Я]{2,13}')
             ]),
         });
+    }
+
+    ngOnInit() {
+        this.httpService.getData().subscribe((data) => this.items = data['usersList']);
     }
 
     addItem(text: string, email: string, phone: number, date: string, position: string): void {

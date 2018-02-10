@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule }   from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 // main component
@@ -106,7 +106,7 @@ export class MaterialModule {}
     FormsModule,
     AngularDraggableModule,
     BrowserAnimationsModule,
-    HttpModule,
+    HttpClientModule,
     MaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
