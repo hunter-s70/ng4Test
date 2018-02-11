@@ -25,6 +25,9 @@ import { UsersComponent } from './components/UsersCmp/app.users';
 // shared components
 import { AppHeader }  from './components/SharedCmp/HeaderCmp/app.header';
 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 // material design
 import {
   MatAutocompleteModule,
@@ -110,7 +113,8 @@ export class MaterialModule {}
     MaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 600 })
   ],
   declarations: [
     AppComponent,

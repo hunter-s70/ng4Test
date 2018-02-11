@@ -14,8 +14,9 @@ import { UserService } from '../../user.service';
 export class UsersComponent implements OnInit {
     items: User[] = [];
     empForm : FormGroup;
+    error: any;
 
-    constructor(private httpService: UserService) {
+    constructor(private userService: UserService) {
         this.empForm = new FormGroup({
 
             'empName': new FormControl('', [
@@ -41,7 +42,14 @@ export class UsersComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.httpService.getData().subscribe((data) => this.items = data['usersList']);
+        this.getUsers();
+    }
+
+    getUsers(): void {
+        this.userService
+            .getUsers()
+            .then(data => this.items = data)
+            .catch(error => this.error = error);
     }
 
     addItem(text: string, email: string, phone: number, date: string, position: string): void {
