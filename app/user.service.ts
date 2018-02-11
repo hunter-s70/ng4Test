@@ -25,14 +25,10 @@ export class UserService {
 
     // Add new User
     private post(user: User): Promise<User> {
-        const headers = new HttpHeaders({
-            'Content-Type': 'application/json'
-        });
-
         return this.http
-            .post(this.usersUrl, JSON.stringify(user), { headers: headers })
+            .post(this.usersUrl, user)
             .toPromise()
-            .then(res => res);
+            .then((response) => response.data);
     }
 
     private handleError(error: any): Promise<any> {

@@ -52,15 +52,8 @@ export class UsersComponent implements OnInit {
             .catch(error => this.error = error);
     }
 
-    addItem(text: string, email: string, phone: number, date: string, position: string): void {
-
-        if(text == null || text == undefined || text.trim() == "") {
-            return;
-        }
-
-        if(phone == null || phone == undefined) {
-            return;
-        }
+    addItem(): void {
+        let formData = this.empForm.value;
 
         let thisId = (() => {
             let maxId = 0;
@@ -70,7 +63,18 @@ export class UsersComponent implements OnInit {
             return maxId + 1;
         })();
 
-        this.items.push(new User(thisId, text, email, phone, date, position));
+        this.userService
+            .saveUser({
+                id: thisId,
+                name: formData.empName,
+                date: formData.empDate,
+                email: formData.empEmail,
+                phone: formData.empPhone,
+                position: formData.empPosition
+            })
+            .then(() => { this.getUsers() })
+            .catch(error => this.error = error);
+        // this.items.push(new User(thisId, text, email, phone, date, position));
     }
 
     delItem(id: number): void {
