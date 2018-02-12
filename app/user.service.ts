@@ -23,12 +23,24 @@ export class UserService {
         return this.post(user);
     }
 
+    updateUser(user: User): Promise<User> {
+        return this.put(user);
+    }
+
     // Add new User
     private post(user: User): Promise<User> {
         return this.http
             .post(this.usersUrl, user)
+            .toPromise();
+    }
+
+    // update current User
+    private put(user: User): Promise<User> {
+        const url = `${this.usersUrl}/${user.id}`;
+
+        return this.http
+            .post(url, user)
             .toPromise()
-            .then((response) => response.data);
     }
 
     private handleError(error: any): Promise<any> {

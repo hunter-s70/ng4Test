@@ -74,7 +74,6 @@ export class UsersComponent implements OnInit {
             })
             .then(() => { this.getUsers() })
             .catch(error => this.error = error);
-        // this.items.push(new User(thisId, text, email, phone, date, position));
     }
 
     delItem(id: number): void {
@@ -90,10 +89,19 @@ export class UsersComponent implements OnInit {
     }
 
     onModalChanged(data: any):void {
-        this.items.forEach(function(item, i, items) {
+        this.items.forEach((item, i, items) => {
             if (item.id === data.id) {
                 // refresh current Item
-                items.splice(i, 1, data);
+                for (let key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        item[key] = data[key];
+                    }
+                }
+                // refresh server data
+                this.userService
+                    .updateUser(items[i])
+                    .then(() => { this.getUsers() })
+                    .catch(error => this.error = error);
             }
         });
     }
