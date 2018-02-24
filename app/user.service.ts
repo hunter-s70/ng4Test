@@ -19,6 +19,12 @@ export class UserService {
             .catch(this.handleError);
     }
 
+    getUserInfo(id: number): Promise<User> {
+        return this.getUsers()
+            .then(users => users.find(user => user.id === id))
+            .catch(this.handleError);
+    }
+
     saveUser(user: User): Promise<User> {
         return this.post(user);
     }

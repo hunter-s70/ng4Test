@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../../User';
 import { UserService } from '../../user.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-users',
@@ -16,7 +17,7 @@ export class UsersComponent implements OnInit {
     empForm : FormGroup;
     error: any;
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private router: Router) {
         this.empForm = new FormGroup({
 
             'empName': new FormControl('', [
@@ -103,5 +104,13 @@ export class UsersComponent implements OnInit {
                     .catch(error => this.error = error);
             }
         });
+    }
+
+    viewItemDetails(user: User):void {
+        if(user.id == null || user.id == undefined) {
+            return;
+        }
+
+        this.router.navigate([`/users/${user.id}`]);
     }
 }

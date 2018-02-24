@@ -8,6 +8,7 @@ import { RouterModule, Routes }  from '@angular/router';
 import { HomeComponent } from './components/HomeCmp/app.home';
 import { SettingsComponent } from './components/SettingsCmp/app.settings';
 import { UsersComponent } from './components/UsersCmp/app.users';
+import { UserDetailsComponent } from './components/UsersCmp/app.user-details';
 
 export const appRoutes: Routes = [
     {
@@ -22,6 +23,10 @@ export const appRoutes: Routes = [
     {
         path: 'users',
         component: UsersComponent
+    },
+    {
+        path: 'users/:id',
+        component: UserDetailsComponent
     },
     {
         path: '**',

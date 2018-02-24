@@ -73,6 +73,7 @@
             <th>Phone</th>
             <th>Date</th>
             <th>Position</th>
+            <th>Details</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -86,6 +87,7 @@
             <td>{{item.phone}}</td>
             <td>{{item.date}}</td>
             <td>{{item.position}}</td>
+            <td><span class="btn btn-default" (click)="viewItemDetails(item)">Details</span></td>
             <td>
                 <!-- SET item in child component -->
                 <dialog-data-example [itemData]="item" (onChanged)="onModalChanged($event)"></dialog-data-example>

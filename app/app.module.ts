@@ -21,6 +21,7 @@ import { AppRoutingModule } from './app.routing';
 import { HomeComponent } from './components/HomeCmp/app.home';
 import { SettingsComponent } from './components/SettingsCmp/app.settings';
 import { UsersComponent } from './components/UsersCmp/app.users';
+import { UserDetailsComponent } from './components/UsersCmp/app.user-details';
 
 // shared components
 import { AppHeader }  from './components/SharedCmp/HeaderCmp/app.header';
@@ -123,7 +124,8 @@ export class MaterialModule {}
     DialogDataExampleDialog,
     HomeComponent,
     SettingsComponent,
-    UsersComponent
+    UsersComponent,
+    UserDetailsComponent
   ],
   bootstrap:    [ AppComponent ],
   entryComponents: [ DialogDataExampleDialog ]
