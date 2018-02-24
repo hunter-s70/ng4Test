@@ -76,16 +76,15 @@ export class UsersComponent implements OnInit {
             .catch(error => this.error = error);
     }
 
-    delItem(id: number): void {
-        if(id == null || id == undefined) {
+    delItem(user: User): void {
+        if(user.id == null || user.id == undefined) {
             return;
         }
 
-        this.items.forEach(function(item, i, items) {
-            if(item.id === id) {
-                items.splice(i, 1);
-            }
-        });
+        this.userService
+            .deleteUser(user)
+            .then(() => { this.getUsers() })
+            .catch(error => this.error = error);
     }
 
     onModalChanged(data: any):void {

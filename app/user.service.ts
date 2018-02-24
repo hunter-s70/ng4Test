@@ -27,6 +27,15 @@ export class UserService {
         return this.put(user);
     }
 
+    deleteUser(user: User): Promise<User> {
+        const url = `${this.usersUrl}/${user.id}`;
+
+        return this.http
+            .delete(url)
+            .toPromise()
+            .catch(this.handleError);
+    }
+
     // Add new User
     private post(user: User): Promise<User> {
         return this.http
