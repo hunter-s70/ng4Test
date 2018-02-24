@@ -44,7 +44,8 @@
             // остальные пакеты
             'angular2-draggable':        'npm:angular2-draggable',
             'rxjs':                      'npm:rxjs',
-            'tslib': 'npm:tslib/tslib.js',
+            'tslib':                     'npm:tslib/tslib.js',
+            'moment':                    'npm:moment/moment.js',
             'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
         },
         // пакеты, которые указывают загрузчику System, как загружать файлы без имени и расширения

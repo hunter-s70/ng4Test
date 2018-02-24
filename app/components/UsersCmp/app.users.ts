@@ -6,6 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../../User';
 import { UserService } from '../../user.service';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-users',
@@ -68,7 +69,7 @@ export class UsersComponent implements OnInit {
             .saveUser({
                 id: thisId,
                 name: formData.empName,
-                date: formData.empDate,
+                date: moment(formData.empDate).format('M/D/YYYY'),
                 email: formData.empEmail,
                 phone: formData.empPhone,
                 position: formData.empPosition
