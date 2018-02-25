@@ -5,7 +5,7 @@ export class User {
     phone: number;
     date: string;
     position: string;
-    avatar: string;
+    avatar?: string;
 
     constructor(id: number, name: string, email: string, phone: number, date: string, position: string, avatar?: string) {
         this.id = id;

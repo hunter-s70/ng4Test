@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../../User';
 import { UserService } from '../../user.service';
+import {PageEvent} from '@angular/material';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 
@@ -15,8 +16,13 @@ import * as moment from 'moment';
 })
 export class UsersComponent implements OnInit {
     items: User[] = [];
+    onePageItems: User[] = [];
     empForm : FormGroup;
     error: any;
+
+    // MatPaginator Output
+    pageEvent: PageEvent;
+    itemsOnPage = 5;
 
     constructor(private userService: UserService, private router: Router) {
         this.empForm = new FormGroup({
@@ -50,7 +56,12 @@ export class UsersComponent implements OnInit {
     getUsers(): void {
         this.userService
             .getUsers()
-            .then(data => this.items = data)
+            .then((data) => {
+                this.onePageItems =
+                    this.pageEvent ? data.slice(this.pageEvent.pageIndex * this.pageEvent.pageSize, (this.pageEvent.pageIndex + 1) * this.pageEvent.pageSize)
+                                   : data.slice(0, this.itemsOnPage);
+                return this.items = data;
+            })
             .catch(error => this.error = error);
     }
 
@@ -113,5 +124,10 @@ export class UsersComponent implements OnInit {
         }
 
         this.router.navigate([`/users/${user.id}`]);
+    }
+
+    changePage(event: any):void {
+        this.pageEvent = event;
+        this.getUsers();
     }
 }
