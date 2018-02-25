@@ -57,10 +57,8 @@ export class UsersComponent implements OnInit {
         this.userService
             .getUsers()
             .then((data) => {
-                this.onePageItems =
-                    this.pageEvent ? data.slice(this.pageEvent.pageIndex * this.pageEvent.pageSize, (this.pageEvent.pageIndex + 1) * this.pageEvent.pageSize)
-                                   : data.slice(0, this.itemsOnPage);
-                return this.items = data;
+                this.items = data;
+                this.setPaginationItems();
             })
             .catch(error => this.error = error);
     }
@@ -128,6 +126,15 @@ export class UsersComponent implements OnInit {
 
     changePage(event: any):void {
         this.pageEvent = event;
-        this.getUsers();
+        this.setPaginationItems();
+    }
+
+    setPaginationItems() {
+        const pageIndex = this.pageEvent ? this.pageEvent.pageIndex : 0,
+              pageSize = this.pageEvent ? this.pageEvent.pageSize : this.itemsOnPage,
+              from = this.pageEvent ? pageIndex * pageSize : 0,
+              to = this.pageEvent ? (pageIndex + 1) * pageSize : this.itemsOnPage;
+
+        this.onePageItems = this.items.slice(from, to);
     }
 }

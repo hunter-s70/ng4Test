@@ -99,9 +99,10 @@
 
     </table>
 
-    <mat-paginator [length]="items.length"
+    <mat-paginator *ngIf="items.length > itemsOnPage"
+                   [length]="items.length"
                    [pageSize]="itemsOnPage"
-                   [pageSizeOptions]="[5, 10, 25]"
+                   [pageSizeOptions]="[5, 10]"
                    (page)="changePage($event)">
     </mat-paginator>
 </div>
