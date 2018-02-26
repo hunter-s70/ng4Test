@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -8,6 +8,7 @@ import { User } from './User';
 @Injectable()
 export class UserService {
     private usersUrl = 'app/users';  // URL to web api
+    private settingsUrl = 'app/settings';  // URL to settings object
 
     constructor(private http: HttpClient){}
 
