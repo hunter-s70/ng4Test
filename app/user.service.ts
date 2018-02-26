@@ -15,7 +15,7 @@ export class UserService {
         return this.http
             .get(this.usersUrl)
             .toPromise()
-            .then((response) => response.data as User[])
+            .then((response) => response.data.reverse() as User[])
             .catch(this.handleError);
     }
 
