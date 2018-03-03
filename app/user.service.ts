@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 
 import { User } from './User';
+import { Setting } from './Setting';
 
 @Injectable()
 export class UserService {
@@ -56,6 +57,26 @@ export class UserService {
 
         return this.http
             .post(url, user)
+            .toPromise()
+    }
+
+    getSettings(): Promise<Array<Setting>> {
+        return this.http
+            .get(this.settingsUrl)
+            .toPromise()
+            .then((response) => response as Setting[])
+            .catch(this.handleError);
+    }
+
+    setSettings(settings: Setting) {
+        return this.putSetting(settings);
+    }
+
+    private putSetting(settings: Setting): Promise<Setting> {
+        const url = `${this.settingsUrl}`;
+
+        return this.http
+            .post(url, settings)
             .toPromise()
     }
 
