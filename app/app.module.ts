@@ -28,6 +28,7 @@ import { AppHeader }  from './components/SharedCmp/HeaderCmp/app.header';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { SettingsService } from './settings.service';
 
 // material design
 import {
@@ -126,6 +127,9 @@ export class MaterialModule {}
     SettingsComponent,
     UsersComponent,
     UserDetailsComponent
+  ],
+  providers: [
+    SettingsService // here for using Rxjs Subject
   ],
   bootstrap:    [ AppComponent ],
   entryComponents: [ DialogDataExampleDialog ]

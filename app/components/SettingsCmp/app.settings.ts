@@ -3,6 +3,7 @@
  */
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
+import { SettingsService } from '../../settings.service';
 
 @Component({
     selector: 'app-settings',
@@ -48,7 +49,7 @@ export class SettingsComponent implements OnInit {
         this.getSettings();
     }
 
-    constructor(private userService: UserService) {}
+    constructor(private userService: UserService, private settingsService: SettingsService) {}
 
     getSettings(): void {
         this.userService
@@ -62,13 +63,18 @@ export class SettingsComponent implements OnInit {
     }
 
     saveSettings() {
+        const setting = {
+            id: this.settings.data[0].id,
+            showAvatar: this.showAvatar,
+            curThemeId: this.selectedTheme
+        };
+
         this.userService
-            .setSettings({
-                id: this.settings.data[0].id,
-                showAvatar: this.showAvatar,
-                curThemeId: this.selectedTheme
+            .setSettings(setting)
+            .then(() => {
+                this.getSettings();
+                this.settingsService.sendSetting(setting);
             })
-            .then(() => { this.getSettings() })
             .catch(error => this.error = error);
     }
 }

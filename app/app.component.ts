@@ -1,5 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { UserService } from './user.service';
+import { SettingsService } from './settings.service';
 
 @Component({
     selector: 'my-app',
@@ -37,7 +38,12 @@ export class AppComponent implements OnInit {
         this.getSettings();
     }
 
-    constructor(private userService: UserService) {}
+    constructor(private userService: UserService, private settingsService: SettingsService) {
+        this.settingsService.catchSetting().subscribe(setting => {
+            this.settingsTheme = setting.curThemeId;
+            this.showAvatar = setting.showAvatar;
+        });
+    }
 
     getSettings(): void {
         this.userService
