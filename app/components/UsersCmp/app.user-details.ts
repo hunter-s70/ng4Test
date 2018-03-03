@@ -52,10 +52,6 @@ import { UserService } from '../../user.service';
             font-size: 1.1em;
             font-weight: bold;
         }
-
-        .btn-link {
-            text-decoration: none;
-        }
     `],
     providers: [UserService]
 })

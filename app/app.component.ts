@@ -15,7 +15,15 @@ import { UserService } from './user.service';
             <router-outlet></router-outlet>
         </div>
     `,
-    styleUrls: ['./app/styles/app.component.css'],
+    styles: [`
+        input.form-control.ng-touched.ng-invalid {
+            border: solid red 1px;
+        }
+
+        input.form-control.ng-touched.ng-valid {
+            border: solid green 1px;
+        }
+    `],
     providers: [UserService]
 })
 

@@ -68,6 +68,7 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th class="avatar-col">Avatar</th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
@@ -82,6 +83,11 @@
         <tbody>
         <!-- Iterator -->
         <tr *ngFor="let item of onePageItems">
+            <td class="avatar-col">
+                <div class="avatar">
+                    <img class="avatar-img" [src]="getAvatar(item.avatar)" alt="user-avatar">
+                </div>
+            </td>
             <td>{{item.name}}</td>
             <td>{{item.email}}</td>
             <td>{{item.phone}}</td>

@@ -1,0 +1,14 @@
+.avatar-col {
+    display: none;
+}
+
+.avatar {
+    width: 33px;
+    height: 33px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.avatar-img {
+    width: 100%;
+}

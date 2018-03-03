@@ -12,12 +12,14 @@ import * as moment from 'moment';
 @Component({
     selector: 'app-users',
     templateUrl: './app/components/UsersCmp/tmp/users_list.html',
+    styleUrls: ['./app/components/UsersCmp/tmp/styles/app.users.css'],
     providers: [UserService]
 })
 export class UsersComponent implements OnInit {
     items: User[] = [];
     onePageItems: User[] = [];
     empForm : FormGroup;
+    dafaultAvatar: string;
     error: any;
 
     // MatPaginator Output
@@ -25,6 +27,7 @@ export class UsersComponent implements OnInit {
     itemsOnPage = 5;
 
     constructor(private userService: UserService, private router: Router) {
+        this.dafaultAvatar = 'assets/img/avatar.jpeg';
         this.empForm = new FormGroup({
 
             'empName': new FormControl('', [
@@ -136,5 +139,9 @@ export class UsersComponent implements OnInit {
               to = this.pageEvent ? (pageIndex + 1) * pageSize : this.itemsOnPage;
 
         this.onePageItems = this.items.slice(from, to);
+    }
+
+    getAvatar(avatar: string):string {
+        return avatar ? avatar : this.dafaultAvatar;
     }
 }

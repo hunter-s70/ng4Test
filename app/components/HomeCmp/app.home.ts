@@ -36,10 +36,6 @@ import { Component} from '@angular/core';
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-        
-        .btn-link {
-            text-decoration: none;
-        }
     `]
 })
 export class HomeComponent { }
