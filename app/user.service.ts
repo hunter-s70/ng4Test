@@ -73,8 +73,7 @@ export class UserService {
     }
 
     private putSetting(settings: Setting): Promise<Setting> {
-        const url = `${this.settingsUrl}`;
-
+        const url = `${this.settingsUrl}/${settings.id}`;
         return this.http
             .post(url, settings)
             .toPromise()

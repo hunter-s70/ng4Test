@@ -1,7 +1,7 @@
 export class InMemoryDataService {
     createDb() {
         const settings = [
-            {"showAvatar": false, "curThemeId": 1}
+            {"id": 0, "showAvatar": false, "curThemeId": 1}
         ];
 
         const users = [
