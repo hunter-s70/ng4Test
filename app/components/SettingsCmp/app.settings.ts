@@ -7,6 +7,7 @@ import { SettingsService } from '../../settings.service';
 @Component({
     selector: 'app-settings',
     template: `
+        <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
         <mat-card *ngIf="settings">
             <mat-card-content>
                 <h3>Settings</h3>

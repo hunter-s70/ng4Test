@@ -12,6 +12,7 @@ import { SettingsService } from './settings.service';
                     theme3: settingsTheme === 3
                 }">
             <app-header></app-header>
+            <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
             <router-outlet></router-outlet>
         </div>
     `,
