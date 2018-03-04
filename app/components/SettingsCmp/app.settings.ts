@@ -2,7 +2,6 @@
  * Created by hunter_s70 on 07.02.2018.
  */
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../user.service';
 import { SettingsService } from '../../settings.service';
 
 @Component({
@@ -30,8 +29,7 @@ import { SettingsService } from '../../settings.service';
             </mat-card-content>
             <button mat-button (click)="saveSettings()">SAVE SETTINGS</button>
         </mat-card>
-    `,
-    providers: [UserService]
+    `
 })
 export class SettingsComponent implements OnInit {
     selectedTheme: number;
@@ -49,10 +47,10 @@ export class SettingsComponent implements OnInit {
         this.getSettings();
     }
 
-    constructor(private userService: UserService, private settingsService: SettingsService) {}
+    constructor(private settingsService: SettingsService) {}
 
     getSettings(): void {
-        this.userService
+        this.settingsService
             .getSettings()
             .then((data) => {
                 this.settings = data;
@@ -62,14 +60,14 @@ export class SettingsComponent implements OnInit {
             .catch(error => this.error = error);
     }
 
-    saveSettings() {
+    saveSettings(): void {
         const setting = {
             id: this.settings.data[0].id,
             showAvatar: this.showAvatar,
             curThemeId: this.selectedTheme
         };
 
-        this.userService
+        this.settingsService
             .setSettings(setting)
             .then(() => {
                 this.getSettings();

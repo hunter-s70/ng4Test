@@ -1,5 +1,4 @@
 import { Component, OnInit  } from '@angular/core';
-import { UserService } from './user.service';
 import { SettingsService } from './settings.service';
 
 @Component({
@@ -24,8 +23,7 @@ import { SettingsService } from './settings.service';
         input.form-control.ng-touched.ng-valid {
             border: solid green 1px;
         }
-    `],
-    providers: [UserService]
+    `]
 })
 
 export class AppComponent implements OnInit {
@@ -38,7 +36,8 @@ export class AppComponent implements OnInit {
         this.getSettings();
     }
 
-    constructor(private userService: UserService, private settingsService: SettingsService) {
+    constructor(private settingsService: SettingsService) {
+        // rxjs subscriber
         this.settingsService.catchSetting().subscribe(setting => {
             this.settingsTheme = setting.curThemeId;
             this.showAvatar = setting.showAvatar;
@@ -46,7 +45,7 @@ export class AppComponent implements OnInit {
     }
 
     getSettings(): void {
-        this.userService
+        this.settingsService
             .getSettings()
             .then((data) => {
                 this.settings = data;
