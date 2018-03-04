@@ -1,4 +1,4 @@
-.btn-link {
+a.btn-link.mat-button {
     text-decoration: none;
 }
 
@@ -7,13 +7,91 @@
 }
 
 /* --- THEME 1 --------- */
-.theme1 {}
+.theme1 .mat-card {
+    background: #fff;
+}
+
+.theme1 .mat-button {
+    background: #ccc;
+}
 /* -- /THEME 1 --------- */
 
+
 /* --- THEME 2 --------- */
-.theme2 {}
+.theme2 {
+    font-size: 0.8em;
+}
+
+.theme2 .mat-card {
+    background: #bcf9d7;
+}
+
+.theme2 .navbar {
+    background: #94daaa;
+}
+
+.theme3 table {
+    border-bottom: 1px solid #ddd;
+}
+
+.theme2 table tr th,
+.theme2 table tr td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.theme2 .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #bcf9d7;
+}
+
+.theme2 table .avatar {
+    margin: auto;
+}
 /* -- /THEME 2 --------- */
 
+
 /* --- THEME 3 --------- */
-.theme3 {}
+.theme3 .mat-card {
+    background: #fbe4f6;
+    text-align: center;
+}
+
+.theme3 .navbar {
+    background: #f5d1d1;
+}
+
+.theme3 table th,
+.theme3 table td {
+    text-align: right;
+}
+
+.theme3 .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #fbe4f6;
+}
+
+.theme3 .avatar {
+    margin: auto;
+}
+
+.theme3 table {
+    border-bottom: 2px solid #ddd;
+}
+
+.theme3 table .avatar {
+    margin: 0 0 0 auto;
+}
+
+.theme3 .avatar {
+    border: 2px solid #9a9a9a;
+}
+
+.theme3 .mat-card-content p {
+    width: 300px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.theme3 .mat-button {
+    background: #f5d1d1;
+}
 /* -- /THEME 3 --------- */

@@ -20,7 +20,7 @@ import { SettingsService } from '../../settings.service';
                         </mat-select>
                     </mat-form-field>
 
-                    <p> Selected value: {{selectedTheme}} </p>
+                    <div> Selected value: {{selectedTheme}} </div>
 
                     <mat-checkbox color="primary"
                                   [(ngModel)]="showAvatar">
